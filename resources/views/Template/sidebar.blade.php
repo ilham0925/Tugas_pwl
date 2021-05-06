@@ -66,7 +66,7 @@
                 @if (auth()->user()->level=="user")
                 <li class="nav-item">
                     <a href="{{route('create-product')}}" class="nav-link active">
-                    <i class="fas fa-keyboard nav-icon"></i>
+                    <i class="fas fa-align-justify nav-icon"></i>
                     <p>Input Data Barang</p>
                     </a>
                 </li>
@@ -74,7 +74,7 @@
         
                 <li class="nav-item">
                     <a href="{{route('data-product')}}" class="nav-link">
-                    <i class="fas fa-table nav-icon"></i>
+                    <i class="fas fa-align-center nav-icon"></i>
                     <p>Data Barang</p>
                     </a>
                 </li>
@@ -83,7 +83,7 @@
 
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-skating"></i>
+                <i class="nav-icon fas fa-align-left"></i>
                 <p>
                     Categorie Barang
                     <i class="right fas fa-angle-left"></i>
@@ -93,7 +93,7 @@
         
                 <li class="nav-item">
                     <a href="{{route('data-categorie')}}" class="nav-link">
-                    <i class="fa fa-address-book nav-icon"></i>
+                    <i class="fa fa-border-all nav-icon"></i>
                     <p>Categorie</p>
                     </a>
                 </li>
@@ -104,7 +104,7 @@
 
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-meteor"></i>
+                <i class="nav-icon fas fa-border-all"></i>
                 <p>
                     Brand Barang
                     <i class="right fas fa-angle-left"></i>
