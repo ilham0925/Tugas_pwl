@@ -37,7 +37,6 @@
             <div class="card card-info card-outline">
                 <div class="card-header">
                 <a href="{{ route('exportproduct') }}" class="btn btn-success">Export</a>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Import</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">

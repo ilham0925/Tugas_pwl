@@ -36,11 +36,12 @@
             <div class="card card-info card-outline">
                 <div class="card-header">
                     <div class="card-tools">
-                    @if (auth()->user()->level=="user")
+                    @if (auth()->user()->level=="admin")
                     <a href="{{route('create-product')}}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
-                    @endif
+                    
                     <a href="{{route('cetak-product')}}" target="_blank" class="btn btn-primary">Cetak Laporan Data <i class="fas fa-print"></i></a>
-                    </div>
+                    @endif
+                   </div>
                 </div>
 
                 <div class="card-body">
@@ -53,7 +54,9 @@
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Gambar</th>
+                            @if (auth()->user()->level=="admin")
                             <th>Aksi</th>
+                            @endif
                         </tr>
                         @foreach ($dtproduct as $item)
                         <tr>
@@ -64,10 +67,12 @@
                             <td>{{ $item->harga }}</td>
                             <td>{{ $item->stok }}</td>
                             <td>{{ $item->gambar }}</td>
+                            @if (auth()->user()->level=="admin")
                             <td>
                                 <a href="{{ url('edit-product',$item->id) }}"><i class="fas fa-edit"></i></a> 
                                 |
                                 <a href="{{ url('delete-product',$item->id) }}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
+                            @endif
                             </td>
                         </tr>
                         @endforeach

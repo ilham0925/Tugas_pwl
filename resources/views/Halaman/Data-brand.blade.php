@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-                <h3 class="m-0">Categorie</h3>
+                <h3 class="m-0">Brand</h3>
             </div><!-- /.col -->
             
             </div>
@@ -44,17 +44,20 @@
                             <th>No</th>
                             <th>Name Categorie</th>
                             <th>Description</th>
+                            @if (auth()->user()->level=="admin")
                             <th>Aksi</th>
+                            @endif
                         </tr>
                         @foreach ($data as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->brand }}</td>
                             <td>{{ $item->description }}</td>
-                           
+                            @if (auth()->user()->level=="admin")
                             <td>
                                 <a href="{{ url('edit-brand',$item->id)}}"><i class="fas fa-edit"></i></a> 
                             </td>
+                            @endif
                         </tr>
                        
                         @endforeach

@@ -36,7 +36,7 @@
             <div class="card card-info card-outline">
                 <div class="card-header">
                     <div class="card-tools">
-                    @if (auth()->user()->level=="user")
+                    @if (auth()->user()->level=="admin")
                     <a href="{{ route('create-user') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                     @endif
                     </div>
@@ -50,7 +50,9 @@
                             <th>Level</th>
                             <th>Email</th>
                             <th>Password</th>
+                            @if (auth()->user()->level=="admin")
                             <th>Aksi</th>
+                            @endif
                         </tr>
                         @foreach ($dtuser as $item)
                         <tr>
@@ -59,11 +61,13 @@
                             <td>{{ $item->level }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->password }}</td>
+                            @if (auth()->user()->level=="admin")
                             <td>
                                 <a href="{{ url('edit-user',$item->id) }}"><i class="fas fa-edit"></i></a> 
                                 |
                                 <a href="{{ url('delete-user',$item->id) }}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                             </td>
+                            @endif
                         </tr>
                         @endforeach
                         

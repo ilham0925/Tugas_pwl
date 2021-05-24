@@ -44,17 +44,20 @@
                             <th>No</th>
                             <th>Name Categorie</th>
                             <th>Description</th>
+                            @if (auth()->user()->level=="admin")
                             <th>Aksi</th>
+                            @endif
                         </tr>
                         @foreach ($data as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->categorie }}</td>
                             <td>{{ $item->description }}</td>
-                           
+                            @if (auth()->user()->level=="admin")
                             <td>
                                 <a href="{{ url('edit-categorie',$item->id)}}"><i class="fas fa-edit"></i></a> 
                             </td>
+                            @endif
                         </tr>
                        
                         @endforeach
