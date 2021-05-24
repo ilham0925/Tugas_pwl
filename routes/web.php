@@ -76,6 +76,12 @@ Route::post('/update-brand/{id}','BrandController@update')->name('update-brand')
 Route::get('/data-masuk','MasukController@index')->name('data-masuk');
 
 
+// Export
+Route::get('/export-product','ExportController@index')->name('export-product');
+Route::get('/exportproduct','ExportController@productexport')->name('exportproduct');
+Route::post('/importproduct','ExportController@productimportexcel')->name('importproduct');
+
+
 
 
 

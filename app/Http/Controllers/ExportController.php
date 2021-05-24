@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\product;
 use App\Exports\ProductExport;
-use Maatwebsite\Excel\facades\excel;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
-class MasukController extends Controller
+class ExportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,30 @@ class MasukController extends Controller
      */
     public function index()
     {
-        $data=product::all();
-         return view('Halaman.Data-masuk',compact('data'));
+        $data = product::all();
+        return view('Halaman.Export-product',compact('data'));
     }
 
-    
+
+
+    public function productexport()
+    {
+        return Excel::download(new ProductExport,'product.xlsx');
+    }
+
+
+
+    public function productimportexcel(Request $request)
+    {
+        $file = $request->file('file');
+        $nameFile = $file->getClientOriginalName();
+        $file->move('DataProduct', $nameFile);
+
+        Excel::import(new ProductImport, public_path('/DataProduct/'.$nameFile));
+        return redirect('/Export-product');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\product;
 use App\categorie;
 use App\brand;
@@ -19,6 +20,8 @@ class ProductController extends Controller
         $dtproduct = product::with('categorie','brand')->paginate(10);
         return view('Halaman.Data-product',compact('dtproduct'));
     }
+
+
 
     public function cetakproduct()
     {
